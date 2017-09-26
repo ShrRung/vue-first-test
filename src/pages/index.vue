@@ -48,12 +48,12 @@
         data () {
             return {
                 created: function () {
-                    this.$http.get('api/getNewsList')
-                        .then((res) => {
-                            this.newsList = res.data
-                        }, (err) => {
-                            console.log(err)
-                        })
+                    this.$http.post('api/getNewsList')
+                    .then(function(res){
+                        this.newsList = res.data
+                    }, function(err){
+                        console.log(err)
+                    })
                 },
                 boardList: [
                     {

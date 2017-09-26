@@ -10,7 +10,7 @@ Vue.use(VRouter)
 Vue.use(VueSource)
 
 let router = new VRouter({
-    mode: 'history',    //去除hash，即浏览器的#。
+    mode: 'history',
     routes:[
         {
             path: '/',
