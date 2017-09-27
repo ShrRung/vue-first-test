@@ -46,7 +46,7 @@
 <script>
     export default {
         created: function () {
-            this.$http.get('api/getNewsList')
+            this.$http.post('api/getNewsList')
             .then((res) => {
                 console.log(res)
                 this.newsList = res.data
