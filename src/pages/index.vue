@@ -45,16 +45,17 @@
 </template>
 <script>
     export default {
+        created: function () {
+            this.$http.get('api/getNewsList')
+            .then((res) => {
+                console.log(res)
+                this.newsList = res.data
+            }, (err) => {
+                console.log(err)
+            })
+        },
         data () {
             return {
-                created: function () {
-                    this.$http.post('api/getNewsList')
-                    .then(function(res){
-                        this.newsList = res.data
-                    }, function(err){
-                        console.log(err)
-                    })
-                },
                 boardList: [
                     {
                         title: '开放产品',
@@ -85,20 +86,7 @@
                         saleout: false
                     }
                 ],
-                newsList: [
-                    {
-                        title: '数据统计',
-                        url: 'http://starcraft.com'
-                    },
-                    {
-                        title: '数据预测',
-                        url: 'http://warcraft.com'
-                    },
-                    {
-                        title: '流量分析',
-                        url: 'http://overwatch.com'
-                    }
-                ],
+                newsList: [],
                 productList: {
                     pc: {
                         title: 'PC产品',
